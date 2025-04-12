@@ -1,0 +1,110 @@
+name: 1-actions-ci-cd-aks
+
+on:
+  push:
+    branches: [ main ]
+    paths: .github/workflows/1-actions-ci-cd-aks.yml
+  pull_request:
+    branches:  none # [ main ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  build-deploy-aks:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_REPOSITORY: dragos93 # name of Docker Hub ID
+      IMAGE_NAME: webapp
+      IMAGE_TAG: ${{ github.run_number }} # $GITHUB_RUN_NUMBER
+    
+    steps:
+
+    - name: Git Checkout
+      uses: actions/checkout@v2
+  
+    - name: Build Docker Image
+      run:
+        docker build ./MvcApp/ --file ./MvcApp/Dockerfile --tag $DOCKER_REPOSITORY/$IMAGE_NAME:$GITHUB_RUN_NUMBER --build-arg=token=ZGEzNTQ5Y2QyNjAx --no-cache
+
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      continue-on-error: true
+      with:
+        image-ref: 'docker.io/${{ env.DOCKER_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}'
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+        vuln-type: 'os,library'
+        severity: 'MEDIUM,HIGH,CRITICAL'
+
+    - name: Login to Docker Hub
+      run: |
+        echo "${{ secrets.DOCKER_REPOSITORY_PASSWORD }}" | docker login -u $DOCKER_REPOSITORY --password-stdin
+        
+    - name: Push Image to Docker Hub
+      run:
+        docker push $DOCKER_REPOSITORY/$IMAGE_NAME:$GITHUB_RUN_NUMBER
+   
+    - uses: cschleiden/replace-tokens@v1
+      with:
+        files: '["kubernetes/*.yaml"]'
+        tokenPrefix: __ # optional, default is #{
+        tokenSuffix: __ # optional, default is }#
+      env:
+        DOCKER_REPOSITORY: ${{ env.DOCKER_REPOSITORY }}
+        IMAGE_NAME: ${{ env.IMAGE_NAME }}
+        IMAGE_TAG: ${{ env.IMAGE_TAG }}
+
+    # Set the target Kubernetes cluster....
+    
+    - name: Set up kubeconfig for Kubernetes cluster
+      run: |
+        mkdir -p ~/.kube
+        echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+
+    - name: Debug Connectivity
+      run: |
+        echo "Testing connection to Kubernetes API..."
+        kubectl cluster-info
+        curl -k http://192.168.65.3:6443
+        ping 192.168.65.3
+
+    - name: Create Namespace for Argo CD
+      run: |
+        kubectl create ns argocd || echo "Namespace 'argocd' already exists."
+
+    - name: Debug Cluster Connectivity
+      run: |
+        kubectl cluster-info
+        kubectl get nodes
+    - name: Create Namespace for Argo CD
+      run: |
+        kubectl create ns argocd
+  
+    - name: Install Argo CD
+      run: |
+        kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    
+    
+    - name: Fetch Argo CD Initial Admin Secret
+      run: |
+        kubectl get secret -n argocd argocd-initial-admin-secret -o yaml
+    
+    - name: Echo Argo CD Admin Secret
+      run: |
+        kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+  
+    - name: Deploy Kubernetes Manifests
+      run: |
+        kubectl apply -f kubernetes/deployment.yaml -n argocd
+        kubectl apply -f kubernetes/service.yaml -n argocd
+        kubectl apply -f kubernetes/applycation.yaml -n argocd        
+    
+    - name: Run Kube-Bench to check cluster config
+      continue-on-error: true
+      run: |
+        kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml
+        sleep 30s
+        kubectl logs job.batch/kube-bench
+        kubectl delete job.batch/kube-bench

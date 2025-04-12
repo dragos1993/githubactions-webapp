@@ -5,16 +5,19 @@ metadata:
   namespace: argocd
 spec:
   project: default
+
   source:
     repoURL: https://github.com/dragos1993/argocd-web.git
     targetRevision: HEAD
-    path: .
-  destination:
+    path: dev
+  destination: 
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: myapp
+
   syncPolicy:
     syncOptions:
-      - CreateNamespace=true
+    - CreateNamespace=true
+
     automated:
       selfHeal: true
       prune: true

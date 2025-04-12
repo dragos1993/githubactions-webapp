@@ -55,15 +55,3 @@ jobs:
         DOCKER_REPOSITORY: ${{ env.DOCKER_REPOSITORY }}
         IMAGE_NAME: ${{ env.IMAGE_NAME }}
         IMAGE_TAG: ${{ env.IMAGE_TAG }}
-      
-        # Set the target Kubernetes cluster.....
-    
-    - name: Set up kubeconfig for Kubernetes cluster
-      run: |
-        mkdir -p ~/.kube
-        echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
-      
-    - name: Debug Connectivity
-      run: |
-        echo "Testing connection to Kubernetes API..."
-        kubectl cluster-info

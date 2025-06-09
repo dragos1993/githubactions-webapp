@@ -58,7 +58,7 @@ jobs:
 
     - name: Apply Kubernetes Deployment
       run: |
-        kubectl apply -f ../dev/deployment.yaml
+        kubectl apply -f ../../dev/deployment.yaml
   
     - name: ArgoCD Application Sync
       run: |

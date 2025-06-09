@@ -14,7 +14,7 @@ jobs:
   build-deploy-aks:
     runs-on: ubuntu-latest
     env:
-      DOCKER_REPOSITORY: dragos93 # name of Docker Hub ID test
+      DOCKER_REPOSITORY: dragos93 # name of Docker Hub ID test5
       IMAGE_NAME: argocd-web-app
       IMAGE_TAG: ${{ github.run_number }} # $GITHUB_RUN_NUMBER
     
@@ -58,7 +58,7 @@ jobs:
 
     - name: Apply Kubernetes Deployment
       run: |
-        kubectl apply --validate=false -f application.yaml -n argocd
+        kubectl apply -f application.yaml -n argocd
   
     - name: ArgoCD Application Sync
       run: |

@@ -1,0 +1,488 @@
+
+==> Audit <==
+|---------|--------------------------------|----------|-----------------|---------|----------------------|----------------------|
+| Command |              Args              | Profile  |      User       | Version |      Start Time      |       End Time       |
+|---------|--------------------------------|----------|-----------------|---------|----------------------|----------------------|
+| start   |                                | minikube | VRINCEANU\vrinc | v1.35.0 | 13 Apr 25 12:21 EEST |                      |
+| start   | --driver=virtualbox            | minikube | VRINCEANU\vrinc | v1.35.0 | 13 Apr 25 12:28 EEST |                      |
+| start   | --driver=docker                | minikube | VRINCEANU\vrinc | v1.35.0 | 13 Apr 25 12:31 EEST |                      |
+| start   | --driver=virtualbox            | minikube | VRINCEANU\vrinc | v1.35.0 | 13 Apr 25 12:33 EEST |                      |
+| start   | --driver=virtualbox            | minikube | VRINCEANU\vrinc | v1.35.0 | 13 Apr 25 12:35 EEST |                      |
+|         | --no-vtx-check                 |          |                 |         |                      |                      |
+| delete  |                                | minikube | VRINCEANU\vrinc | v1.35.0 | 13 Apr 25 12:38 EEST | 13 Apr 25 12:38 EEST |
+| start   | --driver=virtualbox            | minikube | VRINCEANU\vrinc | v1.35.0 | 13 Apr 25 12:38 EEST |                      |
+| start   | --driver=virtualbox            | minikube | VRINCEANU\vrinc | v1.35.0 | 13 Apr 25 12:38 EEST | 13 Apr 25 12:58 EEST |
+|         | --no-vtx-check                 |          |                 |         |                      |                      |
+| kubectl | -- get po -A                   | minikube | VRINCEANU\vrinc | v1.35.0 | 13 Apr 25 13:40 EEST |                      |
+| service | hello-minikube                 | minikube | VRINCEANU\vrinc | v1.35.0 | 13 Apr 25 13:42 EEST |                      |
+| start   |                                | minikube | VRINCEANU\vrinc | v1.35.0 | 13 Apr 25 13:42 EEST |                      |
+|---------|--------------------------------|----------|-----------------|---------|----------------------|----------------------|
+
+
+==> Last Start <==
+Log file created at: 2025/04/13 13:42:33
+Running on machine: Vrinceanu
+Binary: Built with gc go1.23.4 for windows/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0413 13:42:33.193673    3260 out.go:345] Setting OutFile to fd 380 ...
+I0413 13:42:33.194213    3260 out.go:397] isatty.IsTerminal(380) = true
+I0413 13:42:33.194213    3260 out.go:358] Setting ErrFile to fd 380...
+I0413 13:42:33.194213    3260 out.go:397] isatty.IsTerminal(380) = true
+I0413 13:42:33.208166    3260 out.go:352] Setting JSON to false
+I0413 13:42:33.211523    3260 start.go:129] hostinfo: {"hostname":"Vrinceanu","uptime":4524,"bootTime":1744536428,"procs":258,"os":"windows","platform":"Microsoft Windows 11 Pro","platformFamily":"Standalone Workstation","platformVersion":"10.0.26100.3775 Build 26100.3775","kernelVersion":"10.0.26100.3775 Build 26100.3775","kernelArch":"x86_64","virtualizationSystem":"","virtualizationRole":"","hostId":"2ea920b9-9d25-402f-969c-24205f15c45a"}
+W0413 13:42:33.211523    3260 start.go:137] gopshost.Virtualization returned error: not implemented yet
+I0413 13:42:33.213225    3260 out.go:177] 😄  minikube v1.35.0 on Microsoft Windows 11 Pro 10.0.26100.3775 Build 26100.3775
+I0413 13:42:33.215499    3260 notify.go:220] Checking for updates...
+I0413 13:42:33.216095    3260 config.go:182] Loaded profile config "minikube": Driver=virtualbox, ContainerRuntime=docker, KubernetesVersion=v1.32.0
+I0413 13:42:33.216095    3260 driver.go:394] Setting default libvirt URI to qemu:///system
+I0413 13:42:33.236796    3260 virtualbox.go:136] virtual box version: 7.0.18r162988
+I0413 13:42:33.237868    3260 out.go:177] ✨  Using the virtualbox driver based on existing profile
+I0413 13:42:33.240085    3260 start.go:297] selected driver: virtualbox
+I0413 13:42:33.240085    3260 start.go:901] validating driver "virtualbox" against &{Name:minikube KeepContext:false EmbedCerts:false MinikubeISO:https://storage.googleapis.com/minikube/iso/minikube-v1.35.0-amd64.iso KicBaseImage:gcr.io/k8s-minikube/kicbase:v0.0.46@sha256:fd2d445ddcc33ebc5c6b68a17e6219ea207ce63c005095ea1525296da2d1a279 Memory:4000 CPUs:2 DiskSize:20000 Driver:virtualbox HyperkitVpnKitSock: HyperkitVSockPorts:[] DockerEnv:[] ContainerVolumeMounts:[] InsecureRegistry:[] RegistryMirror:[] HostOnlyCIDR:192.168.59.1/24 HypervVirtualSwitch: HypervUseExternalSwitch:false HypervExternalAdapter: KVMNetwork:default KVMQemuURI:qemu:///system KVMGPU:false KVMHidden:false KVMNUMACount:1 APIServerPort:8443 DockerOpt:[] DisableDriverMounts:false NFSShare:[] NFSSharesRoot:/nfsshares UUID: NoVTXCheck:true DNSProxy:false HostDNSResolver:true HostOnlyNicType:virtio NatNicType:virtio SSHIPAddress: SSHUser:root SSHKey: SSHPort:22 KubernetesConfig:{KubernetesVersion:v1.32.0 ClusterName:minikube Namespace:default APIServerHAVIP: APIServerName:minikubeCA APIServerNames:[] APIServerIPs:[] DNSDomain:cluster.local ContainerRuntime:docker CRISocket: NetworkPlugin:cni FeatureGates: ServiceCIDR:10.96.0.0/12 ImageRepository: LoadBalancerStartIP: LoadBalancerEndIP: CustomIngressCert: RegistryAliases: ExtraOptions:[] ShouldLoadCachedImages:true EnableDefaultCNI:false CNI:} Nodes:[{Name: IP:192.168.59.100 Port:8443 KubernetesVersion:v1.32.0 ContainerRuntime:docker ControlPlane:true Worker:true}] Addons:map[default-storageclass:true storage-provisioner:true] CustomAddonImages:map[] CustomAddonRegistries:map[] VerifyComponents:map[apiserver:true system_pods:true] StartHostTimeout:6m0s ScheduledStop:<nil> ExposedPorts:[] ListenAddress: Network: Subnet: MultiNodeRequested:false ExtraDisks:0 CertExpiration:26280h0m0s Mount:false MountString:C:\Users\vrinc:/minikube-host Mount9PVersion:9p2000.L MountGID:docker MountIP: MountMSize:262144 MountOptions:[] MountPort:0 MountType:9p MountUID:docker BinaryMirror: DisableOptimizations:false DisableMetrics:false CustomQemuFirmwarePath: SocketVMnetClientPath: SocketVMnetPath: StaticIP: SSHAuthSock: SSHAgentPID:0 GPUs: AutoPauseInterval:1m0s}
+I0413 13:42:33.240085    3260 start.go:912] status for virtualbox: {Installed:true Healthy:true Running:false NeedsImprovement:false Error:<nil> Reason: Fix: Doc: Version:7.0.18r162988
+}
+I0413 13:42:33.291484    3260 cni.go:84] Creating CNI manager for ""
+I0413 13:42:33.291484    3260 cni.go:158] "virtualbox" driver + "docker" container runtime found on kubernetes v1.24+, recommending bridge
+I0413 13:42:33.291484    3260 start.go:340] cluster config:
+{Name:minikube KeepContext:false EmbedCerts:false MinikubeISO:https://storage.googleapis.com/minikube/iso/minikube-v1.35.0-amd64.iso KicBaseImage:gcr.io/k8s-minikube/kicbase:v0.0.46@sha256:fd2d445ddcc33ebc5c6b68a17e6219ea207ce63c005095ea1525296da2d1a279 Memory:4000 CPUs:2 DiskSize:20000 Driver:virtualbox HyperkitVpnKitSock: HyperkitVSockPorts:[] DockerEnv:[] ContainerVolumeMounts:[] InsecureRegistry:[] RegistryMirror:[] HostOnlyCIDR:192.168.59.1/24 HypervVirtualSwitch: HypervUseExternalSwitch:false HypervExternalAdapter: KVMNetwork:default KVMQemuURI:qemu:///system KVMGPU:false KVMHidden:false KVMNUMACount:1 APIServerPort:8443 DockerOpt:[] DisableDriverMounts:false NFSShare:[] NFSSharesRoot:/nfsshares UUID: NoVTXCheck:true DNSProxy:false HostDNSResolver:true HostOnlyNicType:virtio NatNicType:virtio SSHIPAddress: SSHUser:root SSHKey: SSHPort:22 KubernetesConfig:{KubernetesVersion:v1.32.0 ClusterName:minikube Namespace:default APIServerHAVIP: APIServerName:minikubeCA APIServerNames:[] APIServerIPs:[] DNSDomain:cluster.local ContainerRuntime:docker CRISocket: NetworkPlugin:cni FeatureGates: ServiceCIDR:10.96.0.0/12 ImageRepository: LoadBalancerStartIP: LoadBalancerEndIP: CustomIngressCert: RegistryAliases: ExtraOptions:[] ShouldLoadCachedImages:true EnableDefaultCNI:false CNI:} Nodes:[{Name: IP:192.168.59.100 Port:8443 KubernetesVersion:v1.32.0 ContainerRuntime:docker ControlPlane:true Worker:true}] Addons:map[default-storageclass:true storage-provisioner:true] CustomAddonImages:map[] CustomAddonRegistries:map[] VerifyComponents:map[apiserver:true system_pods:true] StartHostTimeout:6m0s ScheduledStop:<nil> ExposedPorts:[] ListenAddress: Network: Subnet: MultiNodeRequested:false ExtraDisks:0 CertExpiration:26280h0m0s Mount:false MountString:C:\Users\vrinc:/minikube-host Mount9PVersion:9p2000.L MountGID:docker MountIP: MountMSize:262144 MountOptions:[] MountPort:0 MountType:9p MountUID:docker BinaryMirror: DisableOptimizations:false DisableMetrics:false CustomQemuFirmwarePath: SocketVMnetClientPath: SocketVMnetPath: StaticIP: SSHAuthSock: SSHAgentPID:0 GPUs: AutoPauseInterval:1m0s}
+I0413 13:42:33.291484    3260 iso.go:125] acquiring lock: {Name:mkbf17b51bca266e744fc74d362b806573ffdf14 Clock:{} Delay:500ms Timeout:10m0s Cancel:<nil>}
+I0413 13:42:33.293733    3260 out.go:177] 👍  Starting "minikube" primary control-plane node in "minikube" cluster
+I0413 13:42:33.294843    3260 preload.go:131] Checking if preload exists for k8s version v1.32.0 and runtime docker
+I0413 13:42:33.294843    3260 preload.go:146] Found local preload: C:\Users\vrinc\.minikube\cache\preloaded-tarball\preloaded-images-k8s-v18-v1.32.0-docker-overlay2-amd64.tar.lz4
+I0413 13:42:33.294843    3260 cache.go:56] Caching tarball of preloaded images
+I0413 13:42:33.295380    3260 preload.go:172] Found C:\Users\vrinc\.minikube\cache\preloaded-tarball\preloaded-images-k8s-v18-v1.32.0-docker-overlay2-amd64.tar.lz4 in cache, skipping download
+I0413 13:42:33.295380    3260 cache.go:59] Finished verifying existence of preloaded tar for v1.32.0 on docker
+I0413 13:42:33.295380    3260 profile.go:143] Saving config to C:\Users\vrinc\.minikube\profiles\minikube\config.json ...
+I0413 13:42:33.296463    3260 start.go:360] acquireMachinesLock for minikube: {Name:mka13b991bbb6c991e307cc83edec0e9bc1912a0 Clock:{} Delay:500ms Timeout:13m0s Cancel:<nil>}
+I0413 13:42:33.296463    3260 start.go:364] duration metric: took 0s to acquireMachinesLock for "minikube"
+I0413 13:42:33.296463    3260 start.go:96] Skipping create...Using existing machine configuration
+I0413 13:42:33.296463    3260 fix.go:54] fixHost starting: 
+I0413 13:42:33.296991    3260 main.go:141] libmachine: COMMAND: C:\Program Files\Oracle\VirtualBox\VBoxManage.exe showvminfo minikube --machinereadable
+I0413 13:42:33.406936    3260 main.go:141] libmachine: STDOUT:
+{
+name="minikube"
+encryption="disabled"
+groups="/"
+ostype="Linux 2.6 / 3.x / 4.x / 5.x (64-bit)"
+UUID="2f15f183-f4f5-48d4-b40c-31e4bc2435b5"
+CfgFile="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\minikube\\minikube.vbox"
+SnapFldr="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\minikube\\Snapshots"
+LogFldr="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\minikube\\Logs"
+hardwareuuid="2f15f183-f4f5-48d4-b40c-31e4bc2435b5"
+memory=4000
+pagefusion="off"
+vram=8
+cpuexecutioncap=100
+hpet="on"
+cpu-profile="host"
+chipset="piix3"
+firmware="BIOS"
+cpus=2
+pae="on"
+longmode="on"
+triplefaultreset="off"
+apic="on"
+x2apic="off"
+nested-hw-virt="off"
+cpuid-portability-level=0
+bootmenu="disabled"
+boot1="dvd"
+boot2="dvd"
+boot3="disk"
+boot4="none"
+acpi="on"
+ioapic="on"
+biosapic="apic"
+biossystemtimeoffset=0
+NvramFile="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\minikube\\minikube.nvram"
+rtcuseutc="on"
+hwvirtex="on"
+nestedpaging="on"
+largepages="on"
+vtxvpid="on"
+vtxux="on"
+virtvmsavevmload="on"
+iommu="none"
+paravirtprovider="default"
+effparavirtprovider="kvm"
+VMState="running"
+VMStateChangeTime="2025-04-13T09:38:50.005000000"
+graphicscontroller="vboxvga"
+monitorcount=1
+accelerate3d="off"
+accelerate2dvideo="off"
+teleporterenabled="off"
+teleporterport=0
+teleporteraddress=""
+teleporterpassword=""
+tracing-enabled="off"
+tracing-allow-vm-access="off"
+tracing-config=""
+autostart-enabled="off"
+autostart-delay=0
+defaultfrontend=""
+vmprocpriority="default"
+storagecontrollername0="SATA"
+storagecontrollertype0="IntelAhci"
+storagecontrollerinstance0="0"
+storagecontrollermaxportcount0="30"
+storagecontrollerportcount0="30"
+storagecontrollerbootable0="on"
+"SATA-0-0"="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\boot2docker.iso"
+"SATA-ImageUUID-0-0"="08eaf988-f776-4ad2-b74e-7812466ed7ee"
+"SATA-tempeject-0-0"="off"
+"SATA-IsEjected-0-0"="off"
+"SATA-hot-pluggable-0-0"="off"
+"SATA-nonrotational-0-0"="off"
+"SATA-discard-0-0"="off"
+"SATA-1-0"="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\disk.vmdk"
+"SATA-ImageUUID-1-0"="f5dffa4a-8c30-4adc-9f9c-4c19e08664e9"
+"SATA-hot-pluggable-1-0"="off"
+"SATA-nonrotational-1-0"="off"
+"SATA-discard-1-0"="off"
+"SATA-2-0"="none"
+"SATA-3-0"="none"
+"SATA-4-0"="none"
+"SATA-5-0"="none"
+"SATA-6-0"="none"
+"SATA-7-0"="none"
+"SATA-8-0"="none"
+"SATA-9-0"="none"
+"SATA-10-0"="none"
+"SATA-11-0"="none"
+"SATA-12-0"="none"
+"SATA-13-0"="none"
+"SATA-14-0"="none"
+"SATA-15-0"="none"
+"SATA-16-0"="none"
+"SATA-17-0"="none"
+"SATA-18-0"="none"
+"SATA-19-0"="none"
+"SATA-20-0"="none"
+"SATA-21-0"="none"
+"SATA-22-0"="none"
+"SATA-23-0"="none"
+"SATA-24-0"="none"
+"SATA-25-0"="none"
+"SATA-26-0"="none"
+"SATA-27-0"="none"
+"SATA-28-0"="none"
+"SATA-29-0"="none"
+natnet1="nat"
+macaddress1="08002739CCFB"
+cableconnected1="on"
+nic1="nat"
+nictype1="virtio"
+nicspeed1="0"
+mtu="0"
+sockSnd="64"
+sockRcv="64"
+tcpWndSnd="64"
+tcpWndRcv="64"
+Forwarding(0)="ssh,tcp,127.0.0.1,50082,,22"
+hostonlyadapter2="VirtualBox Host-Only Ethernet Adapter #2"
+macaddress2="080027497A77"
+cableconnected2="on"
+nic2="hostonly"
+nictype2="virtio"
+nicspeed2="0"
+nic3="none"
+nic4="none"
+nic5="none"
+nic6="none"
+nic7="none"
+nic8="none"
+hidpointing="ps2mouse"
+hidkeyboard="ps2kbd"
+uart1="off"
+uart2="off"
+uart3="off"
+uart4="off"
+lpt1="off"
+lpt2="off"
+audio="default"
+audio_out="off"
+audio_in="off"
+clipboard="disabled"
+draganddrop="disabled"
+SessionName="headless"
+VideoMode="720,400,0"@0,0 1
+vrde="off"
+usb="off"
+ehci="off"
+xhci="off"
+SharedFolderNameMachineMapping1="c/Users"
+SharedFolderPathMachineMapping1="\\\\?\\c:\\Users"
+VRDEActiveConnection="off"
+VRDEClients==0
+recording_enabled="off"
+recording_screens=1
+ rec_screen0
+rec_screen_enabled="on"
+rec_screen_id=0
+rec_screen_video_enabled="on"
+rec_screen_audio_enabled="off"
+rec_screen_dest="File"
+rec_screen_dest_filename="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\minikube\\minikube-screen0.webm"
+rec_screen_opts="vc_enabled=true,ac_enabled=false,ac_profile=med"
+rec_screen_video_res_xy="1024x768"
+rec_screen_video_rate_kbps=512
+rec_screen_video_fps=25
+GuestMemoryBalloon=0
+GuestOSType="Linux26_64"
+GuestAdditionsRunLevel=2
+GuestAdditionsVersion="6.0.0 r127566"
+GuestAdditionsFacility_VirtualBox Base Driver=50,1744537205165
+GuestAdditionsFacility_VirtualBox System Service=50,1744537206675
+GuestAdditionsFacility_Seamless Mode=0,1744537205121
+GuestAdditionsFacility_Graphics Mode=0,1744537205113
+}
+I0413 13:42:33.406936    3260 main.go:141] libmachine: STDERR:
+{
+}
+I0413 13:42:33.406936    3260 fix.go:112] recreateIfNeeded on minikube: state=Running err=<nil>
+W0413 13:42:33.406936    3260 fix.go:138] unexpected machine state, will restart: <nil>
+I0413 13:42:33.408589    3260 out.go:177] 🏃  Updating the running virtualbox "minikube" VM ...
+I0413 13:42:33.410366    3260 machine.go:93] provisionDockerMachine start ...
+I0413 13:42:33.410983    3260 main.go:141] libmachine: Using SSH client type: native
+I0413 13:42:33.410983    3260 main.go:141] libmachine: <nil>
+I0413 13:42:33.410983    3260 buildroot.go:166] provisioning hostname "minikube"
+I0413 13:42:33.412089    3260 main.go:141] libmachine: Using SSH client type: native
+I0413 13:42:33.412089    3260 main.go:141] libmachine: <nil>
+I0413 13:42:33.412089    3260 machine.go:96] duration metric: took 1.7232ms to provisionDockerMachine
+I0413 13:42:33.412089    3260 fix.go:56] duration metric: took 115.6258ms for fixHost
+I0413 13:42:33.412089    3260 start.go:83] releasing machines lock for "minikube", held for 115.6258ms
+W0413 13:42:33.412089    3260 start.go:714] error starting host: provision: Error getting config for native Go SSH: open C:\Users\vrinc\.minikube\machines\minikube\id_rsa: Access is denied.
+W0413 13:42:33.412089    3260 out.go:270] 🤦  StartHost failed, but will try again: provision: Error getting config for native Go SSH: open C:\Users\vrinc\.minikube\machines\minikube\id_rsa: Access is denied.
+I0413 13:42:33.412089    3260 start.go:729] Will try again in 5 seconds ...
+I0413 13:42:38.412730    3260 start.go:360] acquireMachinesLock for minikube: {Name:mka13b991bbb6c991e307cc83edec0e9bc1912a0 Clock:{} Delay:500ms Timeout:13m0s Cancel:<nil>}
+I0413 13:42:38.412730    3260 start.go:364] duration metric: took 0s to acquireMachinesLock for "minikube"
+I0413 13:42:38.412730    3260 start.go:96] Skipping create...Using existing machine configuration
+I0413 13:42:38.412730    3260 fix.go:54] fixHost starting: 
+I0413 13:42:38.413349    3260 main.go:141] libmachine: COMMAND: C:\Program Files\Oracle\VirtualBox\VBoxManage.exe showvminfo minikube --machinereadable
+I0413 13:42:38.518909    3260 main.go:141] libmachine: STDOUT:
+{
+name="minikube"
+encryption="disabled"
+groups="/"
+ostype="Linux 2.6 / 3.x / 4.x / 5.x (64-bit)"
+UUID="2f15f183-f4f5-48d4-b40c-31e4bc2435b5"
+CfgFile="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\minikube\\minikube.vbox"
+SnapFldr="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\minikube\\Snapshots"
+LogFldr="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\minikube\\Logs"
+hardwareuuid="2f15f183-f4f5-48d4-b40c-31e4bc2435b5"
+memory=4000
+pagefusion="off"
+vram=8
+cpuexecutioncap=100
+hpet="on"
+cpu-profile="host"
+chipset="piix3"
+firmware="BIOS"
+cpus=2
+pae="on"
+longmode="on"
+triplefaultreset="off"
+apic="on"
+x2apic="off"
+nested-hw-virt="off"
+cpuid-portability-level=0
+bootmenu="disabled"
+boot1="dvd"
+boot2="dvd"
+boot3="disk"
+boot4="none"
+acpi="on"
+ioapic="on"
+biosapic="apic"
+biossystemtimeoffset=0
+NvramFile="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\minikube\\minikube.nvram"
+rtcuseutc="on"
+hwvirtex="on"
+nestedpaging="on"
+largepages="on"
+vtxvpid="on"
+vtxux="on"
+virtvmsavevmload="on"
+iommu="none"
+paravirtprovider="default"
+effparavirtprovider="kvm"
+VMState="running"
+VMStateChangeTime="2025-04-13T09:38:50.005000000"
+graphicscontroller="vboxvga"
+monitorcount=1
+accelerate3d="off"
+accelerate2dvideo="off"
+teleporterenabled="off"
+teleporterport=0
+teleporteraddress=""
+teleporterpassword=""
+tracing-enabled="off"
+tracing-allow-vm-access="off"
+tracing-config=""
+autostart-enabled="off"
+autostart-delay=0
+defaultfrontend=""
+vmprocpriority="default"
+storagecontrollername0="SATA"
+storagecontrollertype0="IntelAhci"
+storagecontrollerinstance0="0"
+storagecontrollermaxportcount0="30"
+storagecontrollerportcount0="30"
+storagecontrollerbootable0="on"
+"SATA-0-0"="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\boot2docker.iso"
+"SATA-ImageUUID-0-0"="08eaf988-f776-4ad2-b74e-7812466ed7ee"
+"SATA-tempeject-0-0"="off"
+"SATA-IsEjected-0-0"="off"
+"SATA-hot-pluggable-0-0"="off"
+"SATA-nonrotational-0-0"="off"
+"SATA-discard-0-0"="off"
+"SATA-1-0"="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\disk.vmdk"
+"SATA-ImageUUID-1-0"="f5dffa4a-8c30-4adc-9f9c-4c19e08664e9"
+"SATA-hot-pluggable-1-0"="off"
+"SATA-nonrotational-1-0"="off"
+"SATA-discard-1-0"="off"
+"SATA-2-0"="none"
+"SATA-3-0"="none"
+"SATA-4-0"="none"
+"SATA-5-0"="none"
+"SATA-6-0"="none"
+"SATA-7-0"="none"
+"SATA-8-0"="none"
+"SATA-9-0"="none"
+"SATA-10-0"="none"
+"SATA-11-0"="none"
+"SATA-12-0"="none"
+"SATA-13-0"="none"
+"SATA-14-0"="none"
+"SATA-15-0"="none"
+"SATA-16-0"="none"
+"SATA-17-0"="none"
+"SATA-18-0"="none"
+"SATA-19-0"="none"
+"SATA-20-0"="none"
+"SATA-21-0"="none"
+"SATA-22-0"="none"
+"SATA-23-0"="none"
+"SATA-24-0"="none"
+"SATA-25-0"="none"
+"SATA-26-0"="none"
+"SATA-27-0"="none"
+"SATA-28-0"="none"
+"SATA-29-0"="none"
+natnet1="nat"
+macaddress1="08002739CCFB"
+cableconnected1="on"
+nic1="nat"
+nictype1="virtio"
+nicspeed1="0"
+mtu="0"
+sockSnd="64"
+sockRcv="64"
+tcpWndSnd="64"
+tcpWndRcv="64"
+Forwarding(0)="ssh,tcp,127.0.0.1,50082,,22"
+hostonlyadapter2="VirtualBox Host-Only Ethernet Adapter #2"
+macaddress2="080027497A77"
+cableconnected2="on"
+nic2="hostonly"
+nictype2="virtio"
+nicspeed2="0"
+nic3="none"
+nic4="none"
+nic5="none"
+nic6="none"
+nic7="none"
+nic8="none"
+hidpointing="ps2mouse"
+hidkeyboard="ps2kbd"
+uart1="off"
+uart2="off"
+uart3="off"
+uart4="off"
+lpt1="off"
+lpt2="off"
+audio="default"
+audio_out="off"
+audio_in="off"
+clipboard="disabled"
+draganddrop="disabled"
+SessionName="headless"
+VideoMode="720,400,0"@0,0 1
+vrde="off"
+usb="off"
+ehci="off"
+xhci="off"
+SharedFolderNameMachineMapping1="c/Users"
+SharedFolderPathMachineMapping1="\\\\?\\c:\\Users"
+VRDEActiveConnection="off"
+VRDEClients==0
+recording_enabled="off"
+recording_screens=1
+ rec_screen0
+rec_screen_enabled="on"
+rec_screen_id=0
+rec_screen_video_enabled="on"
+rec_screen_audio_enabled="off"
+rec_screen_dest="File"
+rec_screen_dest_filename="C:\\Users\\vrinc\\.minikube\\machines\\minikube\\minikube\\minikube-screen0.webm"
+rec_screen_opts="vc_enabled=true,ac_enabled=false,ac_profile=med"
+rec_screen_video_res_xy="1024x768"
+rec_screen_video_rate_kbps=512
+rec_screen_video_fps=25
+GuestMemoryBalloon=0
+GuestOSType="Linux26_64"
+GuestAdditionsRunLevel=2
+GuestAdditionsVersion="6.0.0 r127566"
+GuestAdditionsFacility_VirtualBox Base Driver=50,1744537205165
+GuestAdditionsFacility_VirtualBox System Service=50,1744537206675
+GuestAdditionsFacility_Seamless Mode=0,1744537205121
+GuestAdditionsFacility_Graphics Mode=0,1744537205113
+}
+I0413 13:42:38.518909    3260 main.go:141] libmachine: STDERR:
+{
+}
+I0413 13:42:38.518909    3260 fix.go:112] recreateIfNeeded on minikube: state=Running err=<nil>
+W0413 13:42:38.518909    3260 fix.go:138] unexpected machine state, will restart: <nil>
+I0413 13:42:38.521573    3260 out.go:177] 🏃  Updating the running virtualbox "minikube" VM ...
+I0413 13:42:38.523306    3260 machine.go:93] provisionDockerMachine start ...
+I0413 13:42:38.523931    3260 main.go:141] libmachine: Using SSH client type: native
+I0413 13:42:38.523931    3260 main.go:141] libmachine: <nil>
+I0413 13:42:38.523931    3260 buildroot.go:166] provisioning hostname "minikube"
+I0413 13:42:38.524481    3260 main.go:141] libmachine: Using SSH client type: native
+I0413 13:42:38.524481    3260 main.go:141] libmachine: <nil>
+I0413 13:42:38.524481    3260 machine.go:96] duration metric: took 1.1757ms to provisionDockerMachine
+I0413 13:42:38.524481    3260 fix.go:56] duration metric: took 111.7515ms for fixHost
+I0413 13:42:38.524481    3260 start.go:83] releasing machines lock for "minikube", held for 111.7515ms
+W0413 13:42:38.525028    3260 out.go:270] 😿  Failed to start virtualbox VM. Running "minikube delete" may fix it: provision: Error getting config for native Go SSH: open C:\Users\vrinc\.minikube\machines\minikube\id_rsa: Access is denied.
+I0413 13:42:38.526684    3260 out.go:201] 
+W0413 13:42:38.527795    3260 out.go:270] ❌  Exiting due to GUEST_PROVISION: error provisioning guest: Failed to start host: provision: Error getting config for native Go SSH: open C:\Users\vrinc\.minikube\machines\minikube\id_rsa: Access is denied.
+W0413 13:42:38.528349    3260 out.go:270] 
+W0413 13:42:38.528917    3260 out.go:293] [31m╭───────────────────────────────────────────────────────────────────────────────────────────╮[0m
+[31m│[0m                                                                                           [31m│[0m
+[31m│[0m    😿  If the above advice does not help, please let us know:                             [31m│[0m
+[31m│[0m    👉  https://github.com/kubernetes/minikube/issues/new/choose                           [31m│[0m
+[31m│[0m                                                                                           [31m│[0m
+[31m│[0m    Please run `minikube logs --file=logs.txt` and attach logs.txt to the GitHub issue.    [31m│[0m
+[31m│[0m                                                                                           [31m│[0m
+[31m╰───────────────────────────────────────────────────────────────────────────────────────────╯[0m
+I0413 13:42:38.530057    3260 out.go:201] 
+
+
+==> Docker <==
+command /bin/bash -c "sudo journalctl -u docker -u cri-docker -n 60" failed with error: NewSession: new client: new client: Error creating new native config from ssh using: docker, &{[] [C:\Users\vrinc\.minikube\machines\minikube\id_rsa]}: open C:\Users\vrinc\.minikube\machines\minikube\id_rsa: Access is denied.
+
+==> container status <==
+command /bin/bash -c "sudo `which crictl || echo crictl` ps -a || sudo docker ps -a" failed with error: NewSession: new client: new client: Error creating new native config from ssh using: docker, &{[] [C:\Users\vrinc\.minikube\machines\minikube\id_rsa]}: open C:\Users\vrinc\.minikube\machines\minikube\id_rsa: Access is denied.
+
+==> describe nodes <==
+command /bin/bash -c "sudo /var/lib/minikube/binaries/v1.32.0/kubectl describe nodes --kubeconfig=/var/lib/minikube/kubeconfig" failed with error: NewSession: new client: new client: Error creating new native config from ssh using: docker, &{[] [C:\Users\vrinc\.minikube\machines\minikube\id_rsa]}: open C:\Users\vrinc\.minikube\machines\minikube\id_rsa: Access is denied.
+
+==> dmesg <==
+command /bin/bash -c "sudo dmesg -PH -L=never --level warn,err,crit,alert,emerg | tail -n 60" failed with error: NewSession: new client: new client: Error creating new native config from ssh using: docker, &{[] [C:\Users\vrinc\.minikube\machines\minikube\id_rsa]}: open C:\Users\vrinc\.minikube\machines\minikube\id_rsa: Access is denied.
+
+==> kernel <==
+command /bin/bash -c "uptime && uname -a && grep PRETTY /etc/os-release" failed with error: NewSession: new client: new client: Error creating new native config from ssh using: docker, &{[] [C:\Users\vrinc\.minikube\machines\minikube\id_rsa]}: open C:\Users\vrinc\.minikube\machines\minikube\id_rsa: Access is denied.
+
+==> kubelet <==
+command /bin/bash -c "sudo journalctl -u kubelet -n 60" failed with error: NewSession: new client: new client: Error creating new native config from ssh using: docker, &{[] [C:\Users\vrinc\.minikube\machines\minikube\id_rsa]}: open C:\Users\vrinc\.minikube\machines\minikube\id_rsa: Access is denied.

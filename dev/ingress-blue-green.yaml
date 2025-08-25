@@ -1,0 +1,56 @@
+# Main Ingress (Blue - 80%)
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-ssl-blue
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: sapp1.surfacesystems.space
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-web-app-service-blue
+                port:
+                  number: 100
+  tls:
+    - hosts:
+        - sapp1.surfacesystems.space
+      secretName: sapp1.surfacesystems-secret
+
+---
+
+# Canary Ingress (Green - 20%)
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-ssl-green
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-weight: "20"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: sapp1.surfacesystems.space
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-web-app-service-green
+                port:
+                  number: 100
+  tls:
+    - hosts:
+        - sapp1.surfacesystems.space
+      secretName: sapp1.surfacesystems-secret

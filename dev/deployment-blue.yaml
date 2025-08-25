@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-web-app-deployment-blue
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argocd-web-app-blue
+  template:
+    metadata:
+      labels:
+        app: argocd-web-app-blue
+    spec:
+      containers:
+        - name: argocd-web-app-container
+          image: acrrg9.azurecr.io/simple-image:1
+          ports:
+            - containerPort: 80

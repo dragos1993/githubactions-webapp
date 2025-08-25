@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-web-app-deployment-green
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argocd-web-app-green
+  template:
+    metadata:
+      labels:
+        app: argocd-web-app-green
+    spec:
+      containers:
+        - name: argocd-web-app-container
+          image: acrrg9.azurecr.io/simple-image:2
+          ports:
+            - containerPort: 80

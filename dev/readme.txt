@@ -8,3 +8,6 @@ kubectl patch service argocd-web-app-service-blue -n default \
 
 #Remove the shared label from blue pods
 kubectl label pods -l app=argocd-web-app-blue app-
+
+#delete ingress green
+kubectl delete ingress ingress-ssl-green

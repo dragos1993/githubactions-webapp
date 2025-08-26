@@ -11,3 +11,18 @@ kubectl label pods -l app=argocd-web-app-blue app-
 
 #delete ingress green
 kubectl delete ingress ingress-ssl-green
+
+#delete svc green
+kubectl delete svc argocd-web-app-service-green
+
+#delete the deploy of blue
+kubectl delete deploy argocd-web-app-deployment-blue
+
+#kubectl edit deploy argocd-web-app-deployment-green
+A copy of your changes has been stored to "/tmp/kubectl-edit-1006304040.yaml"
+error: At least one of apiVersion, kind and name was changed
+vrinc@Vrinceanu:~/master/test/top2/githubactions-webapp$ kubectl apply -f /tmp/kubectl-edit-1006304040.yaml
+deployment.apps/argocd-web-app-deployment-blue created
+
+#delete the old deploy name
+kubectl delete deployment.apps/argocd-web-app-deployment-green
